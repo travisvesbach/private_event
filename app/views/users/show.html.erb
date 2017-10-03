@@ -1,0 +1,13 @@
+<h1><%= User.find_by(id: params[:id]).name %></h1>
+
+<h3>Created events: </h3>
+<ul class="created_events">
+	<% current_user.created_events.each do |event| %>
+		<li><%= link_to "#{event.name}", event %>
+			<ul>
+				<li><%= event.place %></li>
+				<li><%= event.date.strftime("%B %d, %Y") %></li>
+			</ul>
+		</li>
+	<% end %>
+</ul>

@@ -9,6 +9,11 @@
   </head>
 
   <body>
+  	<% if signed_in? %>
+  		<p>Currently signed in as <%= link_to "#{current_user.name}", current_user %>. <%= link_to "Create an event", new_event_path %> <%= link_to "Events", events_path %>    <%= link_to "Sign out", signout_path %></p>
+  	<% else %>
+  		<p><%= link_to "Sign in", signin_path %>    <%= link_to "Create an account", new_user_path %></p>
+  	<% end %>
     <%= yield %>
   </body>
 </html>

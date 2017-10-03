@@ -1,0 +1,9 @@
+<h1>All Events</h1>
+
+<ul>
+	<% @events.each do |event| %>
+		<li>
+			<strong><%= link_to "#{event.name}", event %></strong> - By: <%= link_to "#{event.creater.name}", event.creater %> - <%= event.place %> - <%= event.date.strftime("%B %d, %Y") %>
+		</li>
+	<% end %>
+</ul>

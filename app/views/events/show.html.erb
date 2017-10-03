@@ -1,0 +1,8 @@
+<h1><%= @event.name %></h1>
+
+<ul>
+	<li>Posted by: <%= link_to "#{@event.creater.name}", @event.creater %></li>
+	<li><%= @event.place %></li>
+	<li><%= @event.date.strftime("%B %d, %Y") %></li>
+	<li><%= @event.description %></li>
+</ul>
