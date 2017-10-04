@@ -7,6 +7,7 @@ class EventsController < ApplicationController
 		@user = current_user
 		@event = @user.created_events.build(event_params)
 		@event.save
+		@event.attendance.create(attendee_id: @user.id)
 		redirect_to @user
 	end
 
@@ -16,6 +17,8 @@ class EventsController < ApplicationController
 
 	def index
 		@events = Event.all
+		@past_events = Event.past_events
+		@upcoming_events = Event.upcoming_events
 	end
 
 	private

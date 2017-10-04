@@ -6,3 +6,10 @@
 	<li><%= @event.date.strftime("%B %d, %Y") %></li>
 	<li><%= @event.description %></li>
 </ul>
+
+<h3>Attendees:</h3>
+<ul>
+	<% @event.attendees.each do |attendee| %>
+		<li><%= link_to "#{attendee.name}", attendee %></li>
+	<% end %>
+</ul>

@@ -1,9 +1,25 @@
 <h1>All Events</h1>
 
-<ul>
-	<% @events.each do |event| %>
-		<li>
-			<strong><%= link_to "#{event.name}", event %></strong> - By: <%= link_to "#{event.creater.name}", event.creater %> - <%= event.place %> - <%= event.date.strftime("%B %d, %Y") %>
-		</li>
+<h3>Upcoming events</h3>
+<table>
+	<% @upcoming_events.each do |event| %>
+		<tr>
+			<td><strong><%= link_to "#{event.name}", event %></strong></td>
+			<td> - Created by: <%= link_to "#{event.creater.name}", event.creater %></td>
+			<td> - <%= event.place %></td>
+			<td> - <%= event.date.strftime("%B %d, %Y") %></td>
+		</tr>
 	<% end %>
-</ul>
+</table>
+
+<h3>Past events</h3>
+<table>
+	<% @past_events.each do |event| %>
+		<tr>
+			<td><strong><%= link_to "#{event.name}", event %></strong></td>
+			<td> - Created by: <%= link_to "#{event.creater.name}", event.creater %></td>
+			<td> - <%= event.place %></td>
+			<td> - <%= event.date.strftime("%B %d, %Y") %></td>
+		</tr>
+	<% end %>
+</table>
